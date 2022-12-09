@@ -83,6 +83,8 @@ def make_graph(df, selection, selection2, year_start, year_end):
 def main():    
     df = pd.read_csv("airline_data_average.csv")
 
+    st.set_page_config(layout="wide")
+
     st.title("Airline Price Data Analysis")
 
     with st.sidebar:
