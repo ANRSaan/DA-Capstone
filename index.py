@@ -98,7 +98,7 @@ def main():
             'Choose your second graph to overlay:', ('', 'Inflation Adjusted Fare Per Mile','Inflation Adjusted Itin Fare', 'Oil Price Per Barrel', 'Total Covid Cases', 'Total Covid Deaths', 'Total Covid Tests Per Thousand', 'Total Covid Vaccinations', 'Distance', 'Round Trip')
         )
 
-    if select == '' and select2 == '':
+    if select == '':
         pass
     else:
         st.write(make_graph(df, select, select2, year_start, year_end))
