@@ -6,6 +6,17 @@ import plotly.express as px
 import seaborn as sns
 
 def snake_case(word):
+    r"""
+        This function takes in the input from the dropdown menu and turns it
+        into a value identical to the column names in the linked csv file
+        to later be read by the graphing function.
+
+        args:
+            word - a string to be converted into snake case
+
+        returns:
+            a string in snake case form
+    """
     snake = ""
     itt = 1
     word = word.replace(" ", "")
@@ -87,11 +98,18 @@ def main():
 
     st.title("Airline Price Data Analysis")
 
+    st.text("""
+        This project compares factors that influence airline ticket price.  
+    """)
+
+    st.text(""" 
+        To use this tool, select what you wish to graph using the dropdown menus on the left side of the page.
+        The data used ranges from 1993, Quarter 1, until 2022, Quarter 2.
+    """)
+
     with st.sidebar:
         years = ['']
         years.extend(list(range(1993, 2023)))
-        year_start = st.selectbox('Choose a starting year:', years)
-        year_end = st.selectbox('Choose an ending year:', years)
 
         select = st.selectbox(
             'Choose your first graph:', ('Inflation Adjusted Fare Per Mile','Inflation Adjusted Itin Fare', 'Oil Price Per Barrel', 'Total Covid Cases', 'Total Covid Deaths', 'Total Covid Tests Per Thousand', 'Total Covid Vaccinations', 'Distance', 'Round Trip')
@@ -99,6 +117,8 @@ def main():
         select2 = st.selectbox(
             'Choose your second graph to overlay:', ('', 'Inflation Adjusted Fare Per Mile','Inflation Adjusted Itin Fare', 'Oil Price Per Barrel', 'Total Covid Cases', 'Total Covid Deaths', 'Total Covid Tests Per Thousand', 'Total Covid Vaccinations', 'Distance', 'Round Trip')
         )
+        year_start = st.selectbox('Choose a starting year:', years)
+        year_end = st.selectbox('Choose an ending year:', years)
 
 
     st.write(make_graph(df, select, select2, year_start, year_end))
