@@ -34,6 +34,20 @@ def snake_case(word):
 
 def make_graph(df, selection, selection2, year_start, year_end):
 
+    """
+        This function creates either a single graph using the year as the x-axis and a user defined column on the y-axis,
+        or two graphs using two user defined columns on either y-axis, overlaid on top of one another.
+
+        args:
+            df: the dataframe to be used in the graph, usually defined as df
+            selection: the first user selection from a drop-down menu in streamlit
+            selection2: the second user selection from a drop-down menu in streamlit
+            year_start: the year selected as the starting year from a drop-down menu in streamlit, defaults to 1993
+            year_end: the year selected as the ending year from a drop-down menu in streamlit, defaults to 2022
+        returns:
+            a graph object
+    """
+
     y_axis = snake_case(selection)
     y_axis2 = snake_case(selection2)
     if year_start == "":
